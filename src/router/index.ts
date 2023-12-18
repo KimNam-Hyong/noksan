@@ -6,30 +6,26 @@ export const setupRouter = [
     // }
 ]
 export const IndexRouter = [
-    // {
-    //     path: '/', redirect: '/index/cesium'
-    // },
-    // {
-    //     path: '/index/cesium',
-    //     component: () => import("../components/cesium/cesium.vue"),//路由懒加载
-    // },
-    // {
-    //     path: '/index/echarts',
-    //     component: () => import("../views/echarts/echarts.vue"),//路由懒加载
-    // },
-    // {
-    //     path: '/index/setup',
-    //     component: () => import("../views/setup/setup.vue"),//路由懒加载
-    //     children: [
-    //         {
-    //             path: '/index/setup', redirect: '/index/setup/home'
-    //         },
-    //         ...setupRouter
-
-    //     ]
-    // },
+    {
+        path: '/', redirect: '/user/info'
+    },
+    {
+        path: '/user/notice',
+        component: () => import("../views/info/Notice.vue"),//路由懒加载
+    },
+    {
+        path: '/user/mainview',
+        component: () => import("../views/view/mainview.vue"),//路由懒加载
+    },
+    {
+        path: '/user/miniview',
+        component: () => import("../views/view/miniview.vue"),//路由懒加载
+    },
+    {
+        path: '/user/quickview',
+        component: () => import("../views/view/quickview.vue"),//路由懒加载
+    },
 ]
-
 const routes: Array<RouteRecordRaw> = [
     //一级路由重定向
     {
@@ -37,16 +33,51 @@ const routes: Array<RouteRecordRaw> = [
     },
     {
         path: '/index',
+        name: 'index',
         component: () => import("../pages/index/index.vue"),//路由懒加载
-        children: [
-            ...IndexRouter
-        
-        ]
+
     },
     {
         path: '/login',
         component: () => import("../pages/login/login.vue"),//路由懒加载
-       
+
+    },
+    {
+        path: '/monitoring',
+        component: () => import("../pages/index/monitoring.vue"),//路由懒加载
+    }
+    ,
+    {
+        path: '/explmg',
+        component: () => import("../pages/index/explmg.vue"),//路由懒加载
+    },
+    {
+        path: '/name',
+        component: () => import("../pages/index/name.vue"),
+    },
+    {
+        path: '/information',
+        component: () => import("../pages/index/information.vue"),
+    },
+    {
+        path: '/localName',
+        component: () => import("../pages/index/localName.vue"),
+    },
+    {
+        path: '/weather',
+        component: () => import("../pages/index/weather.vue"),
+    },
+    {
+        path: '/scale',
+        component: () => import("../pages/index/scale.vue"),
+    },
+    // 后台所有界面
+    {
+        path: '/user',
+        component: () => import("../pages/user/user.vue"),//路由懒加载
+        children: [
+            ...IndexRouter
+        ]
     },
 ]
 
